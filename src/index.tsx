@@ -1,22 +1,52 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules } from 'react-native';
 
-const LINKING_ERROR =
-  `The package 'react-native-klippa-identity-verification-sdk' doesn't seem to be linked. Make sure: \n\n` +
-  Platform.select({ ios: "- You have run 'pod install'\n", default: '' }) +
-  '- You rebuilt the app after installing the package\n' +
-  '- You are not using Expo Go\n';
+const { KlippaIdentityVerificationSdk } = NativeModules;
 
-const KlippaIdentityVerificationSdk = NativeModules.KlippaIdentityVerificationSdk
-  ? NativeModules.KlippaIdentityVerificationSdk
-  : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+export default KlippaIdentityVerificationSdk
 
-export function multiply(a: number, b: number): Promise<number> {
-  return KlippaIdentityVerificationSdk.multiply(a, b);
+export function startSession(builder: IdentityBuilder, sessionToken: string): Promise<void> {
+    return KlippaIdentityVerificationSdk.startSession(builder, sessionToken)
 }
+
+export enum KIVLanguage { English, Dutch, Spanish }
+
+export class KIVFonts {
+    fontName?: string
+    boldFontName?: string
+}
+
+export class KIVColors {
+    textColor?: string;
+
+    backgroundColor?: string;
+
+    buttonSuccessColor?: string;
+
+    buttonErrorColor?: string;
+
+    buttonOtherColor?: string;
+
+    progressBarBackground?: string;
+
+    progressBarForeground?: string;
+}
+
+export class IdentityBuilder {
+
+    colors?: KIVColors
+
+    fonts?: KIVFonts
+
+    language?: KIVLanguage
+
+    verifyIncludeList?: Array<string>
+
+    verifyExcludeList?: Array<string>
+
+    hasIntroScreen?: boolean
+
+    hasSuccessScreen?: boolean
+
+    isDebug?: boolean
+}
+
