@@ -1,7 +1,17 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '12.4'
+platform :ios, '13.0'
+
+ENV['COCOAPODS_DISABLE_STATE'] = 'true'
+
+if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}" == ""
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME"'] = '{your-username}'
+end
+if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}" == ""
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD"'] = '{your-password}'
+end
+
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'KlippaIdentityVerificationSdkExample' do
@@ -26,18 +36,25 @@ target 'KlippaIdentityVerificationSdkExample' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'KlippaIdentityVerificationSdkExampleTests' do
-    inherit! :complete
-    # Pods for testing
+  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(File.join(File.dirname(File.realpath(__FILE__)), '../', 'node_modules', '@klippa', 'react-native-klippa-identity-verification', 'ios', '.sdk_repo')).strip
   end
 
-  post_install do |installer|
-    react_native_post_install(
-      installer,
-      # Set `mac_catalyst_enabled` to `true` in order to apply patches
-      # necessary for Mac Catalyst builds
-      :mac_catalyst_enabled => false
-    )
-    __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(File.join(File.dirname(File.realpath(__FILE__)), '../', 'node_modules', '@klippa', 'react-native-klippa-identity-verification', 'ios', '.sdk_version')).strip
   end
+
+  pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
+
 end
+
+post_install do |installer|
+  react_native_post_install(
+    installer,
+    # Set `mac_catalyst_enabled` to `true` in order to apply patches
+    # necessary for Mac Catalyst builds
+    :mac_catalyst_enabled => false
+  )
+  __apply_Xcode_12_5_M1_post_install_workaround(installer)
+end
+
