@@ -27,7 +27,7 @@
     "!**/.*"
   ],
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepack": "bob build",
@@ -41,13 +41,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/RobinFarmer/react-native-klippa-identity-verification-sdk",
+  "repository": "https://github.com/klippa-app/react-native-klippa-identity-verification-sdk",
   "author": "Robin Farmer <robin@klippa.com> (https://github.com/RobinFarmer)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RobinFarmer/react-native-klippa-identity-verification-sdk/issues"
+    "url": "https://github.com/klippa-app/react-native-klippa-identity-verification-sdk/issues"
   },
-  "homepage": "https://github.com/RobinFarmer/react-native-klippa-identity-verification-sdk#readme",
+  "homepage": "https://github.com/klippa-app/react-native-klippa-identity-verification-sdk#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
