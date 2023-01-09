@@ -1,21 +1,40 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-klippa-identity-verification-sdk';
+import { StyleSheet, View, Text, Button, Alert } from 'react-native';
+import { IdentityBuilder, startSession, KIVLanguage } from 'react-native-klippa-identity-verification-sdk';
+
+
+
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState<string | undefined>();
 
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+  function _startSession() {
+    const builder = new IdentityBuilder()
+
+    builder.language = KIVLanguage.Dutch
+
+    startSession(builder, "{your-token}")
+      .then(() => {
+        setResult("Finished")
+      })
+      .catch((reject) => {
+        Alert.alert(reject.toString())
+      })
+  }
 
   return (
     <View style={styles.container}>
       <Text>Result: {result}</Text>
-    </View>
+      <Button
+        title="Start session"
+        color="#00BC4A"
+        onPress={() => _startSession()} />
+    </View >
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
