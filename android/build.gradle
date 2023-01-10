@@ -8,9 +8,30 @@ buildscript {
   }
 
   dependencies {
-    classpath "com.android.tools.build:gradle:7.2.1"
+    classpath "com.android.tools.build:gradle:7.2.2"
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+rootProject.allprojects {
+  repositories {
+    mavenCentral()
+    google()
+    maven { url "https://jitpack.io" }
+    maven {
+        credentials {
+            username System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] ? System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] : (keystoreProperties["klippa.identity_verification.sdk.username"] ? keystoreProperties["klippa.identity_verification.sdk.username"] : '')
+            password System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] ? System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] : (keystoreProperties["klippa.identity_verification.sdk.password"] ? keystoreProperties["klippa.identity_verification.sdk.password"] : '')
+        }
+        url System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] ? System.getenv()['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] : (keystoreProperties["klippa.identity_verification.sdk.url"] ? keystoreProperties["klippa.identity_verification.sdk.url"] : 'https://custom-ocr.klippa.com/sdk/android/maven')
+    }
   }
 }
 
@@ -58,10 +79,6 @@ android {
 
 }
 
-repositories {
-  mavenCentral()
-  google()
-}
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
 
@@ -71,6 +88,10 @@ dependencies {
   //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  def fallbackKlippaVersion = "0.4.0"
+  def klippaIdentityVerificationVersion = project.hasProperty('klippaIdentityVerificationVersion') ? project.klippaIdentityVerificationVersion : fallbackKlippaVersion
+  implementation "com.klippa:identity_verification:$klippaIdentityVerificationVersion"
 }
 
 if (isNewArchitectureEnabled()) {
