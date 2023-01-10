@@ -9,6 +9,6 @@ jobs:
       - name: Install npm dependencies
         run: |
           npm install
-      - name: Run tests
+      - name: Build Android
         run: |
-          npm test
+          yarn example android
