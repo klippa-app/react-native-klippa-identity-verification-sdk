@@ -8,7 +8,11 @@ export function startSession(builder: IdentityBuilder, sessionToken: string): Pr
     return KlippaIdentityVerificationSdk.startSession(builder, sessionToken)
 }
 
-export enum KIVLanguage { English, Dutch, Spanish }
+export enum KIVLanguage {
+    English = "English",
+    Dutch = "Dutch",
+    Spanish = "Spanish"
+}
 
 export class KIVFonts {
     fontName?: string
@@ -33,9 +37,9 @@ export class KIVColors {
 
 export class IdentityBuilder {
 
-    colors?: KIVColors
+    colors: KIVColors = new KIVColors()
 
-    fonts?: KIVFonts
+    fonts: KIVFonts = new KIVFonts()
 
     language?: KIVLanguage
 

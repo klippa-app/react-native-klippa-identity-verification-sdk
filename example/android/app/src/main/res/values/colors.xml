@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="kiv_text_color">#808080</color>
+    <color name="kiv_background_color">#FFFFFF</color>
+    <color name="kiv_button_success_color">#00CC00</color>
+    <color name="kiv_button_error_color">#FF0000</color>
+    <color name="kiv_button_other_color">#333333</color>
+    <color name="kiv_progress_bar_background_color">#EBEFEF</color>
+    <color name="kiv_progress_bar_foreground_color">#00CC00</color>
+</resources>
