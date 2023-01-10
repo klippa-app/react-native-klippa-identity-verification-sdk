@@ -17,3 +17,7 @@ jobs:
       - run: yarn
       - run: ./gradlew assembleRelease
         working-directory: ./example/android
+        env:
+          KLIPPA_IDENTITY_VERIFICATION_SDK_URL: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_URL_ANDROID }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD }}
