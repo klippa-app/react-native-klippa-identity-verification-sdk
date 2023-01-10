@@ -1,0 +1,44 @@
+name: Build CI
+on: [push]
+
+jobs:
+  build:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npx react-native --version
+      - run: npm install
+      - env:
+          KLIPPA_IDENTITY_VERIFICATION_SDK_URL: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_URL_ANDROID }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD }}
+      - run: npx react-native run-android
+  build-osx:
+    name: Test on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: npx react-native --version
+      - run: npm install
+      - env:
+          KLIPPA_IDENTITY_VERIFICATION_SDK_URL: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_URL_IOS }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME }}
+          KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD }}
+      - run: npx react-native run-ios --simulator
+
+
