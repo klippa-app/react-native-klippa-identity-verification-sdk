@@ -10,15 +10,33 @@ export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
 
   function _startSession() {
+
     const builder = new IdentityBuilder()
 
-    builder.language = KIVLanguage.Dutch
 
-    startSession(builder, "{your-token}")
+    builder.language = KIVLanguage.English
+    builder.colors.textColor = "#A020F0"
+    builder.colors.backgroundColor = "#262c96"
+    builder.colors.buttonErrorColor = "#967126"
+    builder.colors.buttonOtherColor = "#967126"
+    builder.colors.buttonSuccessColor = "#352696"
+    builder.colors.progressBarBackground = "#090521"
+    builder.colors.progressBarForeground = "#e6c5d3"
+
+
+    builder.hasIntroScreen = true
+    builder.hasSuccessScreen = true
+
+    builder.verifyIncludeList = ["Surname"]
+    builder.verifyExcludeList = ["Face"]
+
+
+    startSession(builder, "{your-session-token}")
       .then(() => {
         setResult("Finished")
       })
       .catch((reject) => {
+        console.log(reject.toString())
         Alert.alert(reject.toString())
       })
   }
