@@ -8,9 +8,11 @@ ENV['COCOAPODS_DISABLE_STATE'] = 'true'
 
 if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}" == ""
   ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] = '{your-username}'
+  puts "username empty"
 end
 if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}" == ""
   ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] = '{your-password}'
+  puts "password empty"
 end
 
 install! 'cocoapods', :deterministic_uuids => false
