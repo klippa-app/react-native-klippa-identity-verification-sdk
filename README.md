@@ -4,7 +4,7 @@
 [![Npm version][npm-version]][npm-url]
 [![Build Status][build-status]][build-url]
 
-[build-status]:https://github.com/klippa-app/react-native-klippa-identity-verification-sdk/workflows/Build%20CI/badge.svg
+[build-status]:https://github.com/klippa-app/react-native-klippa-identity-verification-sdk/actions/workflows/build.yml/badge.svg
 [build-url]:https://github.com/klippa-app/react-native-klippa-identity-verification-sdk/actions
 [npm-version]:https://img.shields.io/pub/v/klippa_identity_verification_sdk.svg
 [npm-url]:https://www.npmjs.com/package/@klippa/react-native-klippa-identity-verification-sdk
