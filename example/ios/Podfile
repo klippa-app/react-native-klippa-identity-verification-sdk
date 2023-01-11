@@ -18,19 +18,6 @@ end
 install! 'cocoapods', :deterministic_uuids => false
 
 target 'KlippaIdentityVerificationSdkExample' do
-
-  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
-    file_path = File.expand_path('../../ios/.sdk_repo', __dir__)
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
-  end
-
-  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
-    file_path = File.expand_path('../../ios/.sdk_version', __dir__)
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
-  end
-
-  # pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
-
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -51,6 +38,18 @@ target 'KlippaIdentityVerificationSdkExample' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
+
+  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
+    file_path = File.expand_path('../../ios/.sdk_repo', __dir__)
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
+  end
+
+  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
+    file_path = File.expand_path('../../ios/.sdk_version', __dir__)
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
+  end
+
+  pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
 
 end
 
