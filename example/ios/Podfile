@@ -1,6 +1,3 @@
-require_relative '../node_modules/react-native/scripts/react_native_pods'
-require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
-
 platform :ios, '13.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
@@ -14,6 +11,9 @@ if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}" == ""
   ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] = '{your-password}'
   puts "password empty"
 end
+
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
 install! 'cocoapods', :deterministic_uuids => false
 
