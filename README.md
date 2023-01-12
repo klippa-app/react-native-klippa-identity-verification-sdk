@@ -49,11 +49,13 @@ target 'KlippaIdentityVerificationSdkExample' do
   // Add this below `use_react_native`
 
   if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(File.join(File.dirname(File.realpath(__FILE__)), '../', 'node_modules', '@klippa', 'react-native-klippa-identity-verification', 'ios', '.sdk_repo')).strip
+    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification/ios/.sdk_repo', __dir__)
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
   end
 
   if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(File.join(File.dirname(File.realpath(__FILE__)), '../', 'node_modules', '@klippa', 'react-native-klippa-identity-verification', 'ios', '.sdk_version')).strip
+    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification/ios/.sdk_version', __dir__)
+    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
   end
 
   pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
