@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-      - run: yarn example && yarn install
+      - run: yarn
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: ./example/android
         env:
@@ -39,14 +39,16 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 18
-      - run: yarn example && yarn install
+      - run: yarn
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: ./example/android
         env:
           KLIPPA_IDENTITY_VERIFICATION_SDK_URL: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_URL_ANDROID }}
           KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME }}
           KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD }}
-      - run: pod install && xcodebuild -workspace KlippaIdentityVerificationSdkExample.xcworkspace -scheme KlippaIdentityVerificationSdkExample -sdk iphonesimulator  SKIP_INSTALL=no ARCHS="x86_64" ONLY_ACTIVE_ARCH=NO build
+      - run: |
+          pod install
+          xcodebuild -workspace KlippaIdentityVerificationSdkExample.xcworkspace -scheme KlippaIdentityVerificationSdkExample -sdk iphonesimulator  SKIP_INSTALL=no ARCHS="x86_64" ONLY_ACTIVE_ARCH=NO build
         working-directory: ./example/ios
         env:
           KLIPPA_IDENTITY_VERIFICATION_SDK_URL: ${{ secrets.KLIPPA_IDENTITY_VERIFICATION_SDK_URL_IOS }}
