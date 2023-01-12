@@ -239,6 +239,43 @@ Older iOS versions do not ship the Swift libraries. To make sure the SDK works o
 
 We use XCFrameworks, you need CocoaPod version 1.9.0 or higher to be able to use it.
 
+## Running the Example
+
+### Android
+
+Edit the file `android/key.properties`, and add the SDK credentials:
+
+```
+klippa.identity_verification.sdk.username={your-username}
+klippa.identity_verification.sdk.password={your-password}
+```
+
+Replace the {your-username} and {your-password} values with the ones provided by Klippa.
+
+Afterwards run the following command in the root directory of this repository:
+
+```
+yarn example android
+```
+
+### iOS
+
+Replace {your-username} and {your-password} values with the ones provided by Klippa in the `example/ios/Podfile`
+
+```
+if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}" == ""
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] = '{your-username}'
+end
+
+if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}" == ""
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] = '{your-password}'
+end
+```
+
+Afterwards run the command `pod install` in the `example/ios` directory.
+
+Finally run the command `yarn example ios` in the root directory of this repository.
+
 ## About Klippa
 
 [Klippa](https://www.klippa.com/en) is a scale-up from [Groningen, The Netherlands](https://goo.gl/maps/CcCGaPTBz3u8noSd6) and was founded in 2015 by six Dutch IT specialists with the goal to digitize paper processes with modern technologies.
