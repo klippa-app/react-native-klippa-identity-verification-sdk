@@ -187,7 +187,6 @@ identityBuilder.language = KIVLanguage.Dutch
 ### Colors
 
 #### Android
-Android
 
 Add or edit the file android/app/src/main/res/values/colors.xml, add the following:
 
