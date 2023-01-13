@@ -11,7 +11,7 @@
 
 ## SDK usage
 Please be aware you need to have a Klippa Identity Verification OCR API key to use this SDK.
-If you would like to use our Identity Verification SDK, please contact us [here](https://www.klippa.com/en/ocr/identity-documents/)
+If you would like to use our Identity Verification SDK, please contact us [here](https://www.klippa.com/en/contact-en/)
 
 ## Getting started
 ### Android
