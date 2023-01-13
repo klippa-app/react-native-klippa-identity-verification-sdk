@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text, Button, Alert } from 'react-native';
-import { IdentityBuilder, startSession } from 'react-native-klippa-identity-verification-sdk';
+import { IdentityBuilder, startSession } from '@klippa/react-native-klippa-identity-verification-sdk';
 
 export default function App() {
   const [result, setResult] = React.useState<string | undefined>();
