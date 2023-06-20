@@ -114,6 +114,15 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
             KlippaError.UserCanceled -> {
                 _promise?.reject(E_CANCELED, "User canceled session")
             }
+            KlippaError.NoInternetConnection -> {
+                _promise?.reject(E_CANCELED, "No active internet connection")
+            }
+            KlippaError.DeviceDoesNotSupportNFC -> {
+                _promise?.reject(E_CANCELED, "Device does not support NFC")
+            }
+            KlippaError.DeviceNFCDisabled -> {
+                _promise?.reject(E_CANCELED, "NFC is disabled on device")
+            }
             else -> {
                 _promise?.reject(E_UNKNOWN, "Failed with unknown error")
             }
