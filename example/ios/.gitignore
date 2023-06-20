@@ -16,4 +16,4 @@ xcuserdata/
 
 .build/
 
-*.xcworkspace
+*.xcworkspacePodfile.lock
