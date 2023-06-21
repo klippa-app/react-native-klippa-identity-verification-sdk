@@ -16,4 +16,9 @@ xcuserdata/
 
 .build/
 
-*.xcworkspacePodfile.lock
+*.xcworkspace
+
+# Example
+Podfile.lock
+
+.env
