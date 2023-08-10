@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Bump Android to 0.6.2
+
 ## 0.0.3
 
 * Bump Android to 0.6.0
