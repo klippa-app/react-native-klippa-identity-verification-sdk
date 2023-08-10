@@ -76,7 +76,7 @@ Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescript
 
 ### React Native
 
-`$ npm install @klippa/react-native/klippa-identity-verification-sdk --save`
+`$ npm i @klippa/react-native-klippa-identity-verification-sdk`
 
 Don't forget to run `pod install` in the ios folder when running the iOS app.
 
