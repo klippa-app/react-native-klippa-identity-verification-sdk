@@ -111,6 +111,7 @@ The reject reason object has a code and a message, the codes user are:
 E_CANCELED
 E_UNKNOWN
 E_SUPPORT_PRESSED
+E_CONTACT_SUPPORT_PRESSED
 ```
 
 ## How to use a specific version of the SDK?
@@ -173,6 +174,14 @@ To configure whether to show intro/success screens, add the following to the bui
 ``` typescript
     identityBuilder.hasIntroScreen = true
     identityBuilder.hasSuccessScreen = true
+```
+
+### Retry Threshold
+
+To configure how often a user can attempt a task before the `contact support` button is shown to the user.
+
+```typescript
+identityBuilder.retryThreshold = 1
 ```
 
 ### Language
