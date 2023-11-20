@@ -1,3 +1,9 @@
+## 0.0.7
+
+* Bump Android to 0.7.0
+* Bump iOS to 0.5.11
+* Added `retryThreshold` to `IdentityBuilder` which is to set the threshold the user can attempt a task before a contact support button is shown.
+
 ## 0.0.6
 
 * Bump Android to 0.6.5

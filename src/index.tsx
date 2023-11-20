@@ -52,5 +52,7 @@ export class IdentityBuilder {
     hasSuccessScreen?: boolean
 
     isDebug?: boolean
+
+    retryThreshold?: number
 }
 

@@ -43,6 +43,10 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.isDebug =  isDebug
         }
 
+        if let retryThreshold = config["retryThreshold"] as? Double {
+            builder.retryThreshold = Int(retryThreshold)
+        }
+
         setBuilderColors(config, builder)
 
         setBuilderFonts(config, builder)
