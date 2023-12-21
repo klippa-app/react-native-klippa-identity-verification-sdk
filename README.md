@@ -193,6 +193,36 @@ Add the following to the builder:
 identityBuilder.language = KIVLanguage.Dutch
 ```
 
+### Include & Exclude lists
+
+You can edit the include list: The extracted data keys that will be shown to the user after document pictures are processed. 
+Or the exclude list: The extracted data keys that will be hidden for the user after document pictures are processed.
+
+```typescript
+identityBuilder.verifyIncludeList = [
+     "DateOfBirth",
+     "DateOfIssue",
+     "DateOfExpiry",
+     "DocumentNumber",
+     "DocumentSubtype",
+     "DocumentType",
+     "Face",
+     "Gender",
+     "GivenNames",
+     "Height",
+     "IssuingCountry",
+     "IssuingInstitution",
+     "Nationality",
+     "PersonalNumber",
+     "PlaceOfBirth",
+     "Residency",
+     "Signature",
+     "Surname"
+]
+
+identityBuilder.verifyExcludeList = []
+```
+
 ### Colors
 
 #### Android
