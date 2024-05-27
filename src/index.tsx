@@ -11,7 +11,9 @@ export function startSession(builder: IdentityBuilder, sessionToken: string): Pr
 export enum KIVLanguage {
     English = "English",
     Dutch = "Dutch",
-    Spanish = "Spanish"
+    Spanish = "Spanish",
+    German = "German",
+    French = "French"
 }
 
 export class KIVFonts {
@@ -47,6 +49,10 @@ export class IdentityBuilder {
 
     verifyExcludeList?: Array<string>
 
+    validationIncludeList?: Array<string>
+
+    validationExcludeList?: Array<string>
+
     hasIntroScreen?: boolean
 
     hasSuccessScreen?: boolean
@@ -54,5 +60,7 @@ export class IdentityBuilder {
     isDebug?: boolean
 
     retryThreshold?: number
+
+    enableAutoCapture?: boolean
 }
 

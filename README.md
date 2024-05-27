@@ -184,12 +184,20 @@ To configure how often a user can attempt a task before the `contact support` bu
 identityBuilder.retryThreshold = 1
 ```
 
+### Enable Auto Capture
+
+To configure if the camera should automatically take a photo if the conditions are right.
+
+```typescript
+identityBuilder.enableAutoCapture = true
+```
+
 ### Language
 
 Add the following to the builder:
 
 ``` typescript
-// We support English, Dutch and Spanish
+// We support English, Dutch, Spanish, German and French
 identityBuilder.language = KIVLanguage.Dutch
 ```
 
@@ -221,6 +229,28 @@ identityBuilder.verifyIncludeList = [
 ]
 
 identityBuilder.verifyExcludeList = []
+```
+
+### Validation Include & Exclude lists
+
+You can edit the validation include list: the failed validations that are shown to the user Or the validation exclude list: the failed validations that are hidden from the user.
+For more information regarding validations check out the [API documentation](https://custom-ocr.klippa.com/docs#tag/IdentityVerification/operation/createIdentityVerificationSession). 
+
+```typescript
+identityBuilder.validationIncludeList = [
+    "DetectFace",
+    "CompareFace",
+    "DetectSignature",
+    "CompareSignature",
+    "CheckRequiredField",
+    "MatchSidesFront",
+    "MatchSidesBack",
+    "FieldValidation",
+    "MatchVizMrz",
+    "MrzChecksum"
+]
+
+identityBuilder.validationExcludeList = []
 ```
 
 ### Colors

@@ -47,11 +47,17 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.retryThreshold = Int(retryThreshold)
         }
 
+        if let enableAutoCapture = config["enableAutoCapture"] as? Bool {
+            builder.enableAutoCapture = enableAutoCapture
+        }
+
         setBuilderColors(config, builder)
 
         setBuilderFonts(config, builder)
 
         setVerificationLists(config, builder)
+
+        setValidationLists(config, builder)
 
         return builder
     }
@@ -105,6 +111,10 @@ class KlippaIdentityVerificationSdk: NSObject {
                 builder.kivLanguage = .Dutch
             } else if language == "Spanish" {
                 builder.kivLanguage = .Spanish
+            } else if language == "German" {
+                builder.kivLanguage = .German
+            } else if language == "French" {
+                builder.kivLanguage = .French
             }
         }
     }
@@ -112,8 +122,8 @@ class KlippaIdentityVerificationSdk: NSObject {
     // MARK: Customize Optional Screens
 
     fileprivate func setBuilderOptionalScreens(_ config: [String : Any], _ builder: IdentityBuilder) {
-        if let hasInstroScreen = config["hasIntroScreen"] as? Bool {
-            builder.hasIntroScreen = hasInstroScreen
+        if let hasIntroScreen = config["hasIntroScreen"] as? Bool {
+            builder.hasIntroScreen = hasIntroScreen
         }
 
         if let hasSuccessScreen = config["hasSuccessScreen"] as? Bool {
@@ -130,6 +140,16 @@ class KlippaIdentityVerificationSdk: NSObject {
 
         if let verifyExcludeList = config["verifyExcludeList"] as? [String] {
             builder.kivVerifyExcludeList = verifyExcludeList
+        }
+    }
+
+    fileprivate func setValidationLists(_ config: [String : Any], _ builder: IdentityBuilder) {
+        if let validationIncludeList = config["validationIncludeList"] as? [String] {
+            builder.kivValidationIncludeList = validationIncludeList
+        }
+
+        if let validationExcludeList = config["validationExcludeList"] as? [String] {
+            builder.kivValidationExcludeList = validationExcludeList
         }
     }
 

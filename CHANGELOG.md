@@ -1,3 +1,11 @@
+## 0.0.10
+
+* Bump Android to 0.7.4
+* Bump iOS to 0.5.16
+* Added `German` and `French` support.
+* Added `enableAutoCapture` to `IdentityBuilder`.
+* Added `validationIncludeList` and `validationExcludeList` to `IdentityBuilder`.
+
 ## 0.0.9
 
 * Bump Android to 0.7.3

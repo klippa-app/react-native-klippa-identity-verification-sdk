@@ -95,8 +95,13 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
             identitySession.retryThreshold = retryThreshold.toInt()
         }
 
+        (config["enableAutoCapture"] as? Boolean)?.let { enableAutoCapture ->
+            identitySession.enableAutoCapture = enableAutoCapture
+        }
+
         setVerificationLists(config, identitySession)
 
+        setValidationLists(config, identitySession)
 
         return identitySession
     }
@@ -113,6 +118,21 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
         @Suppress("UNCHECKED_CAST")
         (config["verifyExcludeList"] as? List<String>)?.also { verifyExcludeList ->
             identitySession.kivExcludeList = verifyExcludeList
+        }
+    }
+
+        private fun setValidationLists(
+        config: Map<String, Any>,
+        identitySession: IdentitySession
+    ) {
+        @Suppress("UNCHECKED_CAST")
+        (config["validationIncludeList"] as? List<String>)?.also { validationIncludeList ->
+            identitySession.kivValidationIncludeList = validationIncludeList
+        }
+
+        @Suppress("UNCHECKED_CAST")
+        (config["validationExcludeList"] as? List<String>)?.also { validationExcludeList ->
+            identitySession.kivValidationExcludeList = validationExcludeList
         }
     }
 
@@ -138,6 +158,8 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
                 "English" -> identitySession.language = IdentitySession.KIVLanguage.English
                 "Dutch" -> identitySession.language = IdentitySession.KIVLanguage.Dutch
                 "Spanish" -> identitySession.language = IdentitySession.KIVLanguage.Spanish
+                "German" -> identitySession.language = IdentitySession.KIVLanguage.German
+                "French" -> identitySession.language = IdentitySession.KIVLanguage.French
             }
         }
     }
