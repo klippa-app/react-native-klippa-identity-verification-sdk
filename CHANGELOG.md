@@ -1,6 +1,6 @@
 ## 0.0.10
 
-* Bump Android to 0.7.4
+* Bump Android to 0.7.5
 * Bump iOS to 0.5.16
 * Added `German` and `French` support.
 * Added `enableAutoCapture` to `IdentityBuilder`.
