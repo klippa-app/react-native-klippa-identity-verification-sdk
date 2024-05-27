@@ -51,7 +51,8 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
                 IdentitySessionResultCode.DEVICE_DOES_NOT_SUPPORT_NFC,
                 IdentitySessionResultCode.DEVICE_NFC_DISABLED,
                 IdentitySessionResultCode.UNKNOWN_ERROR,
-                IdentitySessionResultCode.TAKING_PHOTO_FAILED -> identityVerificationCanceled(
+                IdentitySessionResultCode.TAKING_PHOTO_FAILED,
+                IdentitySessionResultCode.INCORRECT_SESSION_SETUP -> identityVerificationCanceled(
                     mappedResultCode.message()
                 )
             }
