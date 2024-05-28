@@ -72,32 +72,32 @@ class KlippaIdentityVerificationSdk: NSObject {
         }
 
         if let textColor = colors["textColor"] {
-            let txtColor = UIColor(kivHexString: textColor)
+            let txtColor = UIColor(hexString: textColor)
             builder.kivColors.textColor = txtColor
         }
 
         if let backgroundColor = colors["backgroundColor"] {
-            builder.kivColors.backgroundColor = UIColor(kivHexString: backgroundColor)
+            builder.kivColors.backgroundColor = UIColor(hexString: backgroundColor)
         }
 
         if let buttonSuccessColor = colors["buttonSuccessColor"] {
-            builder.kivColors.buttonSuccessColor = UIColor(kivHexString: buttonSuccessColor)
+            builder.kivColors.successColor = UIColor(hexString: buttonSuccessColor)
         }
 
         if let buttonErrorColor = colors["buttonErrorColor"] {
-            builder.kivColors.buttonErrorColor = UIColor(kivHexString: buttonErrorColor)
+            builder.kivColors.errorColor = UIColor(hexString: buttonErrorColor)
         }
 
         if let buttonOtherColor = colors["buttonOtherColor"] {
-            builder.kivColors.buttonOtherColor = UIColor(kivHexString: buttonOtherColor)
+            builder.kivColors.otherColor = UIColor(hexString: buttonOtherColor)
         }
 
         if let progressBarBackground = colors["progressBarBackground"] {
-            builder.kivColors.progressBarBackground = UIColor(kivHexString: progressBarBackground)
+            builder.kivColors.progressBarBackground = UIColor(hexString: progressBarBackground)
         }
 
         if let progressBarForeground = colors["progressBarForeground"] {
-            builder.kivColors.progressBarForeground = UIColor(kivHexString: progressBarForeground)
+            builder.kivColors.progressBarForeground = UIColor(hexString: progressBarForeground)
         }
     }
 
