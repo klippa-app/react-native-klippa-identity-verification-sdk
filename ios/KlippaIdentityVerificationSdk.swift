@@ -47,11 +47,17 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.retryThreshold = Int(retryThreshold)
         }
 
+        if let enableAutoCapture = config["enableAutoCapture"] as? Bool {
+            builder.enableAutoCapture = enableAutoCapture
+        }
+
         setBuilderColors(config, builder)
 
         setBuilderFonts(config, builder)
 
         setVerificationLists(config, builder)
+
+        setValidationLists(config, builder)
 
         return builder
     }
@@ -66,32 +72,32 @@ class KlippaIdentityVerificationSdk: NSObject {
         }
 
         if let textColor = colors["textColor"] {
-            let txtColor = hexStringToUIColor(hex: textColor)
+            let txtColor = UIColor(hexString: textColor)
             builder.kivColors.textColor = txtColor
         }
 
         if let backgroundColor = colors["backgroundColor"] {
-            builder.kivColors.backgroundColor = hexStringToUIColor(hex: backgroundColor)
+            builder.kivColors.backgroundColor = UIColor(hexString: backgroundColor)
         }
 
         if let buttonSuccessColor = colors["buttonSuccessColor"] {
-            builder.kivColors.buttonSuccessColor = hexStringToUIColor(hex: buttonSuccessColor)
+            builder.kivColors.successColor = UIColor(hexString: buttonSuccessColor)
         }
 
         if let buttonErrorColor = colors["buttonErrorColor"] {
-            builder.kivColors.buttonErrorColor = hexStringToUIColor(hex: buttonErrorColor)
+            builder.kivColors.errorColor = UIColor(hexString: buttonErrorColor)
         }
 
         if let buttonOtherColor = colors["buttonOtherColor"] {
-            builder.kivColors.buttonOtherColor = hexStringToUIColor(hex: buttonOtherColor)
+            builder.kivColors.otherColor = UIColor(hexString: buttonOtherColor)
         }
 
         if let progressBarBackground = colors["progressBarBackground"] {
-            builder.kivColors.progressBarBackground = hexStringToUIColor(hex: progressBarBackground)
+            builder.kivColors.progressBarBackground = UIColor(hexString: progressBarBackground)
         }
 
         if let progressBarForeground = colors["progressBarForeground"] {
-            builder.kivColors.progressBarForeground = hexStringToUIColor(hex: progressBarForeground)
+            builder.kivColors.progressBarForeground = UIColor(hexString: progressBarForeground)
         }
     }
 
@@ -105,6 +111,10 @@ class KlippaIdentityVerificationSdk: NSObject {
                 builder.kivLanguage = .Dutch
             } else if language == "Spanish" {
                 builder.kivLanguage = .Spanish
+            } else if language == "German" {
+                builder.kivLanguage = .German
+            } else if language == "French" {
+                builder.kivLanguage = .French
             }
         }
     }
@@ -112,8 +122,8 @@ class KlippaIdentityVerificationSdk: NSObject {
     // MARK: Customize Optional Screens
 
     fileprivate func setBuilderOptionalScreens(_ config: [String : Any], _ builder: IdentityBuilder) {
-        if let hasInstroScreen = config["hasIntroScreen"] as? Bool {
-            builder.hasIntroScreen = hasInstroScreen
+        if let hasIntroScreen = config["hasIntroScreen"] as? Bool {
+            builder.hasIntroScreen = hasIntroScreen
         }
 
         if let hasSuccessScreen = config["hasSuccessScreen"] as? Bool {
@@ -133,6 +143,16 @@ class KlippaIdentityVerificationSdk: NSObject {
         }
     }
 
+    fileprivate func setValidationLists(_ config: [String : Any], _ builder: IdentityBuilder) {
+        if let validationIncludeList = config["validationIncludeList"] as? [String] {
+            builder.kivValidationIncludeList = validationIncludeList
+        }
+
+        if let validationExcludeList = config["validationExcludeList"] as? [String] {
+            builder.kivValidationExcludeList = validationExcludeList
+        }
+    }
+
     // MARK: Customize Fonts
 
     fileprivate func setBuilderFonts(_ config: [String : Any], _ builder: IdentityBuilder) {
@@ -148,30 +168,35 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.kivFonts.boldFontName = boldFontName
         }
     }
+}
 
-    func hexStringToUIColor(hex:String) -> UIColor? {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-
-        if (cString.hasPrefix("#")) {
-            cString.remove(at: cString.startIndex)
+extension UIColor {
+    convenience init(hexString: String) {
+        var newString = hexString
+        if newString.first != "#" {
+            newString.insert("#", at: newString.startIndex)
         }
-
-        if ((cString.count) != 6) {
-            return nil
+        let hex = newString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int = UInt64()
+        Scanner(string: hex).scanHexInt64(&int)
+        let a, r, g, b: UInt64
+        switch hex.count {
+        case 3: // RGB (12-bit)
+            (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+        case 6: // RGB (24-bit)
+            (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        case 8: // ARGB (32-bit)
+            (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (a, r, g, b) = (255, 0, 0, 0)
         }
-
-        var rgbValue:UInt64 = 0
-        Scanner(string: cString).scanHexInt64(&rgbValue)
-
-        return UIColor(
-            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-            alpha: CGFloat(1.0)
+        self.init(
+            red: CGFloat(r) / 255,
+            green: CGFloat(g) / 255,
+            blue: CGFloat(b) / 255,
+            alpha: CGFloat(a) / 255
         )
     }
-
-
 }
 
 extension KlippaIdentityVerificationSdk: IdentityBuilderDelegate {

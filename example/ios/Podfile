@@ -24,50 +24,61 @@ target 'KlippaIdentityVerificationSdkExample' do
   flags = get_default_flags()
 
   use_react_native!(
-    :path => config[:reactNativePath],
-    # Hermes is now enabled by default. Disable by setting this flag to false.
-    # Upcoming versions of React Native may rely on get_default_flags(), but
-    # we make it explicit here to aid in the React Native upgrade process.
-    :hermes_enabled => true,
-    :fabric_enabled => flags[:fabric_enabled],
-    # Enables Flipper.
-    #
-    # Note that if you have use_frameworks! enabled, Flipper will not work and
-    # you should disable the next line.
-    :flipper_configuration => FlipperConfiguration.enabled,
-    # An absolute path to your application root.
-    :app_path => "#{Pod::Config.instance.installation_root}/.."
-  )
+                    :path => config[:reactNativePath],
+                    # Hermes is now enabled by default. Disable by setting this flag to false.
+                    # Upcoming versions of React Native may rely on get_default_flags(), but
+                    # we make it explicit here to aid in the React Native upgrade process.
+                    :hermes_enabled => true,
+                    :fabric_enabled => flags[:fabric_enabled],
+                    # Enables Flipper.
+                    #
+                    # Note that if you have use_frameworks! enabled, Flipper will not work and
+                    # you should disable the next line.
+                    :flipper_configuration => FlipperConfiguration.enabled,
+                    # An absolute path to your application root.
+                    :app_path => "#{Pod::Config.instance.installation_root}/.."
+                    )
 
-  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
-    file_path = File.expand_path('../../ios/.sdk_repo', __dir__)
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
-  end
+                    if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
+                      file_path = File.expand_path('../../ios/.sdk_repo', __dir__)
+                      ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
+                    end
 
-  if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
-    file_path = File.expand_path('../../ios/.sdk_version', __dir__)
-    ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
-  end
+                    if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
+                      file_path = File.expand_path('../../ios/.sdk_version', __dir__)
+                      ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
+                    end
 
-  pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
+                    pod 'Klippa-Identity-Verification', podspec: "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}/KlippaIdentityVerification/#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}.podspec"
 
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
-        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
+    end
+    if target.name == 'Flipper'
+      file_path = 'Pods/Flipper/xplat/Flipper/FlipperTransportTypes.h'
+      contents = File.read(file_path)
+      unless contents.include?('#include <functional>')
+        File.chmod(0755, file_path)
+        File.open(file_path, 'w') do |file|
+          file.puts('#include <functional>')
+          file.puts(contents)
+        end
+      end
     end
   end
 
 
   react_native_post_install(
-    installer,
-    # Set `mac_catalyst_enabled` to `true` in order to apply patches
-    # necessary for Mac Catalyst builds
-    :mac_catalyst_enabled => false
-  )
-  __apply_Xcode_12_5_M1_post_install_workaround(installer)
+                            installer,
+                            # Set `mac_catalyst_enabled` to `true` in order to apply patches
+                            # necessary for Mac Catalyst builds
+                            :mac_catalyst_enabled => false
+                            )
+                            __apply_Xcode_12_5_M1_post_install_workaround(installer)
 end
 
