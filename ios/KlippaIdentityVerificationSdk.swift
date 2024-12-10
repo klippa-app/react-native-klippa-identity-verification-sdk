@@ -208,19 +208,22 @@ extension KlippaIdentityVerificationSdk: IdentityBuilderDelegate {
         _resolve = nil
     }
 
-    func identityVerificationCanceled(withError: KlippaIdentityVerification.KlippaError) {
-        switch withError {
-        case .InsufficientPermissions:
-            _reject?(E_CANCELED, "Insufficient permissions", nil)
-        case .NoInternetConnection:
-            _reject?(E_CANCELED, "No internet connection", nil)
-        case .SessionToken:
-            _reject?(E_CANCELED, "Invalid session token", nil)
-        case .UserCanceled:
-            _reject?(E_CANCELED, "User canceled session", nil)
-        default:
-            _reject?(E_UNKNOWN, "Failed with unknown error", nil)
-        }
+    func identityVerificationCanceled(withError error: KlippaError) {
+        let errorMessage: String = {
+            switch error {
+            case KlippaError.InsufficientPermissions:
+                return "Insufficient permissions"
+            case KlippaError.InputDeviceError:
+                return "Invalid input device"
+            case KlippaError.SessionToken:
+                return "Invalid session token"
+            case KlippaError.UserCanceled:
+                return "User canceled session"
+            case KlippaError.NoInternetConnection:
+                return "No internet connection"
+            }
+        }()
+        _reject?(E_CANCELED, errorMessage, nil)
         _reject = nil
     }
 
