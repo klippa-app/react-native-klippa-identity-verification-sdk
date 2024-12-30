@@ -49,12 +49,12 @@ target 'KlippaIdentityVerificationSdkExample' do
   // Add this below `use_react_native`
 
   if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL']}" == ""
-    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification/ios/.sdk_repo', __dir__)
+    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification-sdk/ios/.sdk_repo', __dir__)
     ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = File.read(file_path).strip
   end
 
   if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION']}" == ""
-    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification/ios/.sdk_version', __dir__)
+    file_path = File.expand_path('../node_modules/@klippa/react-native-klippa-identity-verification-sdk/ios/.sdk_version', __dir__)
     ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = File.read(file_path).strip
   end
 
