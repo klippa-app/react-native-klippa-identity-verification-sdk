@@ -221,6 +221,8 @@ extension KlippaIdentityVerificationSdk: IdentityBuilderDelegate {
                 return "User canceled session"
             case KlippaError.NoInternetConnection:
                 return "No internet connection"
+            case KlippaError.NfcNotSupported:
+                return "NFC Not supported"
             }
         }()
         _reject?(E_CANCELED, errorMessage, nil)

@@ -1,7 +1,7 @@
 {
     "name": "@klippa/react-native-klippa-identity-verification-sdk",
     "title": "React Native Klippa Identity Verification SDK",
-    "version": "0.0.13",
+    "version": "0.0.14",
     "description": "A React Native plugin to use the Klippa Identity Verification SDK",
     "homepage": "https://github.com/klippa-app/react-native-klippa-identity-verification-sdk",
     "main": "lib/commonjs/index",
