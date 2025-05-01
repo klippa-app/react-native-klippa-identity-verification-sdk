@@ -64,7 +64,7 @@ end
 ```
 Replace the `{your-username}` and `{your-password}` values with the ones provided by Klippa.
 
-Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescription` value:
+Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescription` key:
 ```
 ...
 <key>NSCameraUsageDescription</key>
@@ -73,6 +73,21 @@ Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescript
 <string>Access to your photo library is used to save the images of documents.</string>
 ...
 ```
+
+In case you would like to use NFC also add the `com.apple.developer.nfc.readersession.iso7816.select-identifiers` key:
+
+```
+...
+<key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
+<array>
+<string>A0000002471001</string>
+<string>A0000002472001</string>
+<string>00000000000000</string>
+</array>
+...
+```
+
+**Important**: When using NFC also add "Near Field Communication Tag Reading" capability to your app using the Signing & Capabilities pane of the project editor.
 
 ### React Native
 
