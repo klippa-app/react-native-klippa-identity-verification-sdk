@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		4A49FDA12D082FA40072EA23 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4A49FDA02D082FA40072EA23 /* PrivacyInfo.xcprivacy */; };
-		4AAD27A72DC4C3BE00D3776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAD27A62DC4C3BE00D3776A /* AppDelegate.swift */; };
+		4AAD27B02DC4DC3A00D3776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAD27AF2DC4DC3A00D3776A /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		E63E3B571324B4AE9B710F39 /* libPods-KlippaIdentityVerificationSdkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C02DEE66F5B572D85D758A8 /* libPods-KlippaIdentityVerificationSdkExample.a */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KlippaIdentityVerificationSdkExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KlippaIdentityVerificationSdkExample/Info.plist; sourceTree = "<group>"; };
 		4A49FDA02D082FA40072EA23 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		4AAD27A62DC4C3BE00D3776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4AAD27AF2DC4DC3A00D3776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = KlippaIdentityVerificationSdkExample/AppDelegate.swift; sourceTree = "<group>"; };
 		4AB32CD72DC4B43E004CBBB5 /* KlippaIdentityVerificationSdkExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KlippaIdentityVerificationSdkExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KlippaIdentityVerificationSdkExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C02DEE66F5B572D85D758A8 /* libPods-KlippaIdentityVerificationSdkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KlippaIdentityVerificationSdkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,12 +61,12 @@
 		13B07FAE1A68108700A75B9A /* KlippaIdentityVerificationSdkExample */ = {
 			isa = PBXGroup;
 			children = (
-				4AAD27A62DC4C3BE00D3776A /* AppDelegate.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				4A49FDA02D082FA40072EA23 /* PrivacyInfo.xcprivacy */,
 				4AB32CD72DC4B43E004CBBB5 /* KlippaIdentityVerificationSdkExample-Bridging-Header.h */,
+				4AAD27AF2DC4DC3A00D3776A /* AppDelegate.swift */,
 			);
 			name = KlippaIdentityVerificationSdkExample;
 			sourceTree = "<group>";
@@ -333,7 +333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AAD27A72DC4C3BE00D3776A /* AppDelegate.swift in Sources */,
+				4AAD27B02DC4DC3A00D3776A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
