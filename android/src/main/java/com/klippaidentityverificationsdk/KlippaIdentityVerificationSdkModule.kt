@@ -80,7 +80,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
 
     private fun setupIdentityBuilder(
         sessionToken: String,
-        config: Map<String, Any>
+        config: Map<String, Any?>
     ): IdentitySession {
         val identitySession = IdentitySession(sessionToken)
 
@@ -108,7 +108,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
     }
 
     private fun setVerificationLists(
-        config: Map<String, Any>,
+        config: Map<String, Any?>,
         identitySession: IdentitySession
     ) {
         @Suppress("UNCHECKED_CAST")
@@ -123,7 +123,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
     }
 
         private fun setValidationLists(
-        config: Map<String, Any>,
+        config: Map<String, Any?>,
         identitySession: IdentitySession
     ) {
         @Suppress("UNCHECKED_CAST")
@@ -138,7 +138,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
     }
 
     private fun setBuilderOptionalScreens(
-        config: Map<String, Any>,
+        config: Map<String, Any?>,
         identitySession: IdentitySession
     ) {
         (config["hasIntroScreen"] as? Boolean)?.also { hasIntroScreen ->
@@ -151,7 +151,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
     }
 
     private fun setBuilderLanguage(
-        config: Map<String, Any>,
+        config: Map<String, Any?>,
         identitySession: IdentitySession
     ) {
         (config["language"] as? String)?.also { language ->
