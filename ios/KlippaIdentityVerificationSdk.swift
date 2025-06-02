@@ -51,6 +51,18 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.enableAutoCapture = enableAutoCapture
         }
 
+        if let allowCameraOnNFCTask = config["allowCameraOnNFCTask"] as? Bool {
+            builder.allowCameraOnNFCTask = allowCameraOnNFCTask
+        }
+
+        if let exitOnRetryThresholdReached = config["exitOnRetryThresholdReached"] as? Bool {
+            builder.exitOnRetryThresholdReached = exitOnRetryThresholdReached
+        }
+
+        if let nfcTimeoutThreshold = config["nfcTimeoutThreshold"] as? Double {
+            builder.nfcTimeoutThreshold = nfcTimeoutThreshold
+        }
+
         setBuilderColors(config, builder)
 
         setBuilderFonts(config, builder)
@@ -223,6 +235,10 @@ extension KlippaIdentityVerificationSdk: IdentityBuilderDelegate {
                 return "No internet connection"
             case KlippaError.NfcNotSupported:
                 return "NFC Not supported"
+            case KlippaError.AllowPictureFallbackDisabled:
+                return "Allow Picture Fallback Disabled"
+            case KlippaError.RetryLimitReached:
+                return "Retry Limit Reached"
             }
         }()
         _reject?(E_CANCELED, errorMessage, nil)

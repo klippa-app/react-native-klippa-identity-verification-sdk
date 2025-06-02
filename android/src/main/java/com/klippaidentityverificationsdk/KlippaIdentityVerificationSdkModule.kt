@@ -52,7 +52,9 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
                 IdentitySessionResultCode.DEVICE_NFC_DISABLED,
                 IdentitySessionResultCode.UNKNOWN_ERROR,
                 IdentitySessionResultCode.TAKING_PHOTO_FAILED,
-                IdentitySessionResultCode.INCORRECT_SESSION_SETUP -> identityVerificationCanceled(
+                IdentitySessionResultCode.INCORRECT_SESSION_SETUP,
+                IdentitySessionResultCode.ALLOW_PICTURE_FALLBACK_DISABLED,
+                IdentitySessionResultCode.RETRY_LIMIT_REACHED -> identityVerificationCanceled(
                     mappedResultCode.message()
                 )
             }
@@ -98,6 +100,18 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
 
         (config["enableAutoCapture"] as? Boolean)?.let { enableAutoCapture ->
             identitySession.enableAutoCapture = enableAutoCapture
+        }
+
+        (config["nfcTimeoutThreshold"] as? Double)?.let { nfcTimeoutThreshold ->
+            identitySession.nfcTimeoutThreshold = nfcTimeoutThreshold
+        }
+
+        (config["allowCameraOnNFCTask"] as? Boolean)?.let { allowCameraOnNFCTask ->
+            identitySession.allowCameraOnNFCTask = allowCameraOnNFCTask
+        }
+
+        (config["exitOnRetryThresholdReached"] as? Boolean)?.let { exitOnRetryThresholdReached ->
+            identitySession.exitOnRetryThresholdReached = exitOnRetryThresholdReached
         }
 
         setVerificationLists(config, identitySession)
