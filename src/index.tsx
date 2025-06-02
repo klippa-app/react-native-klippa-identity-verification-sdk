@@ -62,5 +62,11 @@ export class IdentityBuilder {
     retryThreshold?: number
 
     enableAutoCapture?: boolean
+
+    allowCameraOnNFCTask?: boolean
+
+    exitOnRetryThresholdReached?: boolean
+
+    nfcTimeoutThreshold?: number
 }
 

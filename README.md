@@ -199,6 +199,25 @@ To configure how often a user can attempt a task before the `contact support` bu
 identityBuilder.retryThreshold = 1
 ```
 
+To configure if the SDK should quit instead of showing the support button you can set the following:
+```typescript
+identityBuilder.exitOnRetryThresholdReached = true
+```
+
+### Allow Camera On NFC Task
+
+To configure whether a user can skip NFC and use OCR instead.
+```typescript
+identityBuilder.allowCameraOnNFCTask = true
+```
+
+### NFC Timeout Threshold
+
+To configure how long the NFC detecting stays active you can set a timeout.
+```typescript
+identityBuilder.nfcTimeoutThreshold = 5.0
+```
+
 ### Enable Auto Capture
 
 To configure if the camera should automatically take a photo if the conditions are right.
