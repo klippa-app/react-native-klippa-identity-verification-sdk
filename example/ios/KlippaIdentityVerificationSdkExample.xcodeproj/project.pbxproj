@@ -11,7 +11,7 @@
 		4A49FDA12D082FA40072EA23 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4A49FDA02D082FA40072EA23 /* PrivacyInfo.xcprivacy */; };
 		4AAD27B02DC4DC3A00D3776A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAD27AF2DC4DC3A00D3776A /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		E63E3B571324B4AE9B710F39 /* libPods-KlippaIdentityVerificationSdkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C02DEE66F5B572D85D758A8 /* libPods-KlippaIdentityVerificationSdkExample.a */; };
+		F81D79936D611A3BF2A89B5D /* libPods-KlippaIdentityVerificationSdkExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5DE209404A7B1E199CB2FB6 /* libPods-KlippaIdentityVerificationSdkExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,17 +26,17 @@
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* KlippaIdentityVerificationSdkExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlippaIdentityVerificationSdkExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		08B2D490F7484CA99BEB9222 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig"; path = "Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig"; sourceTree = "<group>"; };
+		0406954A84158A3F6828C657 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlippaIdentityVerificationSdkExample.release.xcconfig"; path = "Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* KlippaIdentityVerificationSdkExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KlippaIdentityVerificationSdkExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KlippaIdentityVerificationSdkExample/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KlippaIdentityVerificationSdkExample/Info.plist; sourceTree = "<group>"; };
+		36EAEC5C6402ADEA51AC1496 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig"; path = "Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig"; sourceTree = "<group>"; };
 		4A49FDA02D082FA40072EA23 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		4AAD27AF2DC4DC3A00D3776A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = KlippaIdentityVerificationSdkExample/AppDelegate.swift; sourceTree = "<group>"; };
 		4AB32CD72DC4B43E004CBBB5 /* KlippaIdentityVerificationSdkExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KlippaIdentityVerificationSdkExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KlippaIdentityVerificationSdkExample/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9C02DEE66F5B572D85D758A8 /* libPods-KlippaIdentityVerificationSdkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KlippaIdentityVerificationSdkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E53BBD849E41C45C0E81A1A3 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlippaIdentityVerificationSdkExample.release.xcconfig"; path = "Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F5DE209404A7B1E199CB2FB6 /* libPods-KlippaIdentityVerificationSdkExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KlippaIdentityVerificationSdkExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E63E3B571324B4AE9B710F39 /* libPods-KlippaIdentityVerificationSdkExample.a in Frameworks */,
+				F81D79936D611A3BF2A89B5D /* libPods-KlippaIdentityVerificationSdkExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				9C02DEE66F5B572D85D758A8 /* libPods-KlippaIdentityVerificationSdkExample.a */,
+				F5DE209404A7B1E199CB2FB6 /* libPods-KlippaIdentityVerificationSdkExample.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,8 +113,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				08B2D490F7484CA99BEB9222 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */,
-				E53BBD849E41C45C0E81A1A3 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */,
+				36EAEC5C6402ADEA51AC1496 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */,
+				0406954A84158A3F6828C657 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -144,14 +144,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KlippaIdentityVerificationSdkExample" */;
 			buildPhases = (
-				4822D5F83C405A1E1C77B3E7 /* [CP] Check Pods Manifest.lock */,
+				8D81610984EE60AC620F0F35 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				0F707EC79471681B7BACC6A2 /* [CP] Embed Pods Frameworks */,
-				2364C54CAF6AD3BDFECC94AD /* [CP] Copy Pods Resources */,
+				8C998A843A2188404084EC6E /* [CP] Embed Pods Frameworks */,
+				8B93982370088E0EE72584AB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,28 +235,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		0F707EC79471681B7BACC6A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2364C54CAF6AD3BDFECC94AD /* [CP] Copy Pods Resources */ = {
+		8B93982370088E0EE72584AB /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,20 +243,33 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4822D5F83C405A1E1C77B3E7 /* [CP] Check Pods Manifest.lock */ = {
+		8C998A843A2188404084EC6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KlippaIdentityVerificationSdkExample/Pods-KlippaIdentityVerificationSdkExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D81610984EE60AC620F0F35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -399,7 +391,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08B2D490F7484CA99BEB9222 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */;
+			baseConfigurationReference = 36EAEC5C6402ADEA51AC1496 /* Pods-KlippaIdentityVerificationSdkExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -435,7 +427,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E53BBD849E41C45C0E81A1A3 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */;
+			baseConfigurationReference = 0406954A84158A3F6828C657 /* Pods-KlippaIdentityVerificationSdkExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -534,7 +526,10 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -601,7 +596,10 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
