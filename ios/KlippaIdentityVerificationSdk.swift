@@ -51,15 +51,15 @@ class KlippaIdentityVerificationSdk: NSObject {
             builder.enableAutoCapture = enableAutoCapture
         }
 
-        if let allowCameraOnNFCTask = builderArgs["allowCameraOnNFCTask"] as? Bool {
+        if let allowCameraOnNFCTask = config["allowCameraOnNFCTask"] as? Bool {
             builder.allowCameraOnNFCTask = allowCameraOnNFCTask
         }
 
-        if let exitOnRetryThresholdReached = builderArgs["exitOnRetryThresholdReached"] as? Bool {
+        if let exitOnRetryThresholdReached = config["exitOnRetryThresholdReached"] as? Bool {
             builder.exitOnRetryThresholdReached = exitOnRetryThresholdReached
         }
 
-        if let nfcTimeoutThreshold = builderArgs["nfcTimeoutThreshold"] as? Double {
+        if let nfcTimeoutThreshold = config["nfcTimeoutThreshold"] as? Double {
             builder.nfcTimeoutThreshold = nfcTimeoutThreshold
         }
 
