@@ -1,6 +1,3 @@
-# react-native-klippa-identity-verification-sdk
-
-
 [![Npm version][npm-version]][npm-url]
 [![Build Status][build-status]][build-url]
 
@@ -9,27 +6,27 @@
 [npm-version]:https://img.shields.io/npm/v/@klippa/react-native-klippa-identity-verification-sdk.svg
 [npm-url]:https://www.npmjs.com/package/@klippa/react-native-klippa-identity-verification-sdk
 
-## SDK usage
+### SDK usage
 Please be aware you need to have a Klippa Identity Verification OCR API key to use this SDK.
 If you would like to use our Identity Verification SDK, please contact us [here](https://www.klippa.com/en/contact-en/)
 
-## Getting started
-### Android
+### Getting started
+#### Android
 
 Edit the file `android/key.properties`, if it doesn't exist yet, create it. Add the SDK credentials:
 
-```
+```bash
 klippa.identity_verification.sdk.username={your-username}
 klippa.identity_verification.sdk.password={your-password}
 ```
 
 Replace the `{your-username}` and `{your-password}` values with the ones provided by Klippa.
 
-### iOS
+#### iOS
 
 Edit the file `ios/Podfile`, add the Klippa CocoaPod:
 
-``` ruby
+```ruby
 // Add this to the top of your file:
 // Edit the platform to a minimum of 13.0, our SDK doesn't support earlier versions.
 platform :ios, '13.0'
@@ -65,7 +62,7 @@ end
 Replace the `{your-username}` and `{your-password}` values with the ones provided by Klippa.
 
 Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescription` key:
-```
+```xml
 ...
 <key>NSCameraUsageDescription</key>
 <string>Access to your camera is needed to photograph documents.</string>
@@ -76,7 +73,7 @@ Edit the file `ios/{project-name}/Info.plist` and add the `NSCameraUsageDescript
 
 In case you would like to use NFC also add the `com.apple.developer.nfc.readersession.iso7816.select-identifiers` key:
 
-```
+```xml
 ...
 <key>com.apple.developer.nfc.readersession.iso7816.select-identifiers</key>
 <array>
@@ -89,19 +86,19 @@ In case you would like to use NFC also add the `com.apple.developer.nfc.readerse
 
 **Important**: When using NFC also add "Near Field Communication Tag Reading" capability to your app using the Signing & Capabilities pane of the project editor.
 
-### React Native
+#### React Native
 
 `$ npm i @klippa/react-native-klippa-identity-verification-sdk`
 
 Don't forget to run `pod install` in the ios folder when running the iOS app.
 
-### Mostly automatic installation (only for versions of React Native lower than 0.60, later versions have auto-linking)
+#### Mostly automatic installation (only for versions of React Native lower than 0.60, later versions have auto-linking)
 
 `$ react-native link @klippa/react-native-klippa-idendity-verification-sdk`
 
-## Usage
+### Usage
 
-```typescript
+```javascript
 import { IdentityBuilder, startSession } from 'react-native-klippa-identity-verification-sdk';
 
 const identityBuilder = new IdentityBuilder()
@@ -122,20 +119,18 @@ After returning from the SDK you can use the API to validate the session in your
 
 The reject reason object has a code and a message, the codes user are:
 
-```
-E_CANCELED
-E_UNKNOWN
-E_SUPPORT_PRESSED
-E_CONTACT_SUPPORT_PRESSED
-```
+- E_CANCELED
+- E_UNKNOWN
+- E_SUPPORT_PRESSED
+- E_CONTACT_SUPPORT_PRESSED
 
-## How to use a specific version of the SDK?
+### Specify SDK Version
 
-### Android
+#### Android
 
 Edit the file `android/build.gradle`, add the following:
 
-``` groovy
+```groovy
 allprojects {
   // ... other definitions
   project.ext {
@@ -150,16 +145,16 @@ If you want to change the repository:
 
 Edit the file `android/key.properties`, add the following repository URL:
 
-```
+```bash
 klippa.identity_verification.sdk.url={repository-url}
 ```
 
 Replace `{repository-url}` with the version you want to use.
 
-### iOS
+#### iOS
 
 Edit the file ios/Podfile, add the following line below the username/password if you want to change the version:
-``` ruby
+```ruby
 ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_VERSION'] = '{version}'
 ```
 Replace {version} with the version that you want to use.
@@ -167,80 +162,80 @@ Replace {version} with the version that you want to use.
 If you want to change the repository:
 
 Edit the file ios/Podfile, add the following line below the username/password if you want to change the URL:
-``` ruby
+```ruby
 ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_URL'] = '{repository-url}'
 ```
 Replace {repository-url} with the URL that you want to use.
 
-## How to change the setup of the SDK:
+### Customize SDK
 
-### Debug
+#### Debug
 
 To display extra debug info, add the following to the builder:
 
-``` typescript
+```javascript
 identityBuilder.isDebug = true
 ```
 
-### Intro / Success screens
+#### Intro / Success screens
 
 To configure whether to show intro/success screens, add the following to the builder:
 
-``` typescript
+```javascript
     identityBuilder.hasIntroScreen = true
     identityBuilder.hasSuccessScreen = true
 ```
 
-### Retry Threshold
+#### Retry Threshold
 
 To configure how often a user can attempt a task before the `contact support` button is shown to the user.
 
-```typescript
+```javascript
 identityBuilder.retryThreshold = 1
 ```
 
 To configure if the SDK should quit instead of showing the support button you can set the following:
-```typescript
+```javascript
 identityBuilder.exitOnRetryThresholdReached = true
 ```
 
-### Allow Camera On NFC Task
+#### Allow Camera On NFC Task
 
 To configure whether a user can skip NFC and use OCR instead.
-```typescript
+```javascript
 identityBuilder.allowCameraOnNFCTask = true
 ```
 
-### NFC Timeout Threshold
+#### NFC Timeout Threshold
 
 To configure how long the NFC detecting stays active you can set a timeout.
-```typescript
+```javascript
 identityBuilder.nfcTimeoutThreshold = 5.0
 ```
 
-### Enable Auto Capture
+#### Enable Auto Capture
 
 To configure if the camera should automatically take a photo if the conditions are right.
 
-```typescript
+```javascript
 identityBuilder.enableAutoCapture = true
 ```
 
-### Language
+#### Language
 
 Add the following to the builder:
 
-``` typescript
+``` javascript
 // We support English, Dutch, Spanish, German and French
 identityBuilder.language = KIVLanguage.Dutch
 ```
 
-### Include & Exclude lists
+#### Include & Exclude lists
 
 You can edit the include list: The extracted data keys that will be shown to the user after document pictures are processed. 
 Or the exclude list: The extracted data keys that will be hidden for the user after document pictures are processed.
 
-```typescript
+```javascript
 identityBuilder.verifyIncludeList = [
      "DateOfBirth",
      "DateOfIssue",
@@ -265,12 +260,12 @@ identityBuilder.verifyIncludeList = [
 identityBuilder.verifyExcludeList = []
 ```
 
-### Validation Include & Exclude lists
+#### Validation Include & Exclude lists
 
 You can edit the validation include list: the failed validations that are shown to the user Or the validation exclude list: the failed validations that are hidden from the user.
 For more information regarding validations check out the [API documentation](https://custom-ocr.klippa.com/docs#tag/IdentityVerification/operation/createIdentityVerificationSession). 
 
-```typescript
+```javascript
 identityBuilder.validationIncludeList = [
     "DetectFace",
     "CompareFace",
@@ -287,13 +282,13 @@ identityBuilder.validationIncludeList = [
 identityBuilder.validationExcludeList = []
 ```
 
-### Colors
+### Customize the colours
 
 #### Android
 
 Add or edit the file android/app/src/main/res/values/colors.xml, add the following:
 
-``` xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="kiv_text_color">#808080</color>
@@ -307,7 +302,7 @@ Add or edit the file android/app/src/main/res/values/colors.xml, add the followi
 ```
 
 You can also replace the fonts by adding the files:
-```
+```bash
 android/app/src/main/res/font/kiv_font.ttf
 android/app/src/main/res/font/kiv_font_bold.ttf
 ```
@@ -316,7 +311,7 @@ android/app/src/main/res/font/kiv_font_bold.ttf
 
 Use the following properties in the builder:
 
-``` typescript
+```javascript
 
 // Colors:
 
@@ -335,19 +330,19 @@ identityBuilder.fonts.boldFontName = "Avenir next Bold"
 
 ```
 
-## Important iOS notes
+### Important iOS notes
 
 Older iOS versions do not ship the Swift libraries. To make sure the SDK works on older iOS versions, you can configure the build to embed the Swift libraries using the build setting EMBEDDED_CONTENT_CONTAINS_SWIFT = YES.
 
 We use XCFrameworks, you need CocoaPod version 1.9.0 or higher to be able to use it.
 
-## Running the Example
+### Running the Example
 
-### Android
+#### Android
 
 Edit the file `android/key.properties`, and add the SDK credentials:
 
-```
+```bash
 klippa.identity_verification.sdk.username={your-username}
 klippa.identity_verification.sdk.password={your-password}
 ```
@@ -356,15 +351,15 @@ Replace the {your-username} and {your-password} values with the ones provided by
 
 Afterwards run the following command in the root directory of this repository:
 
-```
+```bash
 yarn example android
 ```
 
-### iOS
+#### iOS
 
 Replace {your-username} and {your-password} values with the ones provided by Klippa in the `example/ios/Podfile`
 
-```
+```ruby
 if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}" == ""
   ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] = '{your-username}'
 end
@@ -378,7 +373,7 @@ Afterwards run the command `pod install` in the `example/ios` directory.
 
 Finally run the command `yarn example ios` in the root directory of this repository.
 
-## About Klippa
+### About Klippa
 
 [Klippa](https://www.klippa.com/en) is a scale-up from [Groningen, The Netherlands](https://goo.gl/maps/CcCGaPTBz3u8noSd6) and was founded in 2015 by six Dutch IT specialists with the goal to digitize paper processes with modern technologies.
 
