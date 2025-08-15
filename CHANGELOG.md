@@ -2,6 +2,8 @@
 
 * Replace deprecated `currentActivity` for `reactApplicationContext.currentActivity`.
 * Replace `onActivityResult` with non optional activity.
+* Bump Android to 0.7.14
+* Bump iOS to 0.6.7
 
 ## 0.0.17
 
