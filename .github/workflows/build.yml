@@ -16,7 +16,7 @@ jobs:
           java-version: "17.x"
       - uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 22
       - run: yarn
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: ./example/android
@@ -38,7 +38,7 @@ jobs:
           java-version: "17.x"
       - uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 22
       - run: yarn
       - run: ./gradlew assembleRelease --no-daemon
         working-directory: ./example/android
