@@ -30,7 +30,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
 
     private val activityEventListener = object : BaseActivityEventListener() {
         override fun onActivityResult(
-            activity: Activity?,
+            activity: Activity,
             requestCode: Int,
             resultCode: Int,
             data: Intent?
@@ -76,7 +76,7 @@ class KlippaIdentityVerificationSdkModule(private val reactContext: ReactApplica
         val builder = setupIdentityBuilder(sessionToken, config.toHashMap())
 
         val intent = builder.getIntent(reactContext)
-        currentActivity?.startActivityForResult(intent, REQUEST_CODE)
+        reactApplicationContext.currentActivity?.startActivityForResult(intent, REQUEST_CODE)
     }
 
 
