@@ -90,7 +90,7 @@ dependencies {
   implementation "com.facebook.react:react-native"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-  def fallbackKlippaVersion = "0.7.14"
+  def fallbackKlippaVersion = "0.7.15"
   def klippaIdentityVerificationVersion = project.hasProperty('klippaIdentityVerificationVersion') ? project.klippaIdentityVerificationVersion : fallbackKlippaVersion
   implementation "com.klippa:identity_verification:$klippaIdentityVerificationVersion"
 }
