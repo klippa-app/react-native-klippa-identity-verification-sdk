@@ -55,6 +55,7 @@ def getExtOrIntegerDefault(name) {
 }
 
 android {
+  namespace "com.klippaidentityverificationsdk"
   compileSdkVersion getExtOrIntegerDefault("compileSdkVersion")
 
   defaultConfig {
@@ -89,7 +90,7 @@ dependencies {
   implementation "com.facebook.react:react-native"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-  def fallbackKlippaVersion = "0.7.13"
+  def fallbackKlippaVersion = "0.7.15"
   def klippaIdentityVerificationVersion = project.hasProperty('klippaIdentityVerificationVersion') ? project.klippaIdentityVerificationVersion : fallbackKlippaVersion
   implementation "com.klippa:identity_verification:$klippaIdentityVerificationVersion"
 }
