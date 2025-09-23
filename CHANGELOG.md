@@ -1,3 +1,7 @@
+## 0.0.19
+
+* Remove unused iOS dependencies.
+
 ## 0.0.18
 
 * Replace deprecated `currentActivity` for `reactApplicationContext.currentActivity`.
