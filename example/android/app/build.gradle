@@ -85,6 +85,13 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    
+    packaging {
+        resources {
+            excludes += "**/META-INF/versions/9/OSGI-INF/MANIFEST.MF"
+        }
+    }
+    
     signingConfigs {
         debug {
             storeFile file('debug.keystore')
