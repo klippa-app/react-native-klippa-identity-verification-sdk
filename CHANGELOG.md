@@ -1,3 +1,7 @@
+## 0.0.20
+
+* Bump Android to 0.7.17
+
 ## 0.0.19
 
 * Remove unused iOS dependencies.
