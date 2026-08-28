@@ -340,7 +340,7 @@ We use XCFrameworks, you need CocoaPod version 1.9.0 or higher to be able to use
 
 #### Android
 
-Edit the file `android/key.properties`, and add the SDK credentials:
+Copy `example/android/key.properties.example` to `example/android/key.properties` and add the SDK credentials:
 
 ```bash
 klippa.identity_verification.sdk.username={your-username}
