@@ -28,14 +28,14 @@ Edit the file `ios/Podfile`, add the Klippa CocoaPod:
 
 ```ruby
 // Add this to the top of your file:
-// Edit the platform to a minimum of 13.0, our SDK doesn't support earlier versions.
-platform :ios, '13.0'
+// Edit the platform to a minimum of 15.0, our SDK doesn't support earlier versions.
+platform :ios, '15.0'
 
 if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME']}" == ""
-  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME"'] = '{your-username}'
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_USERNAME'] = '{your-username}'
 end
 if "#{ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD']}" == ""
-  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD"'] = '{your-password}'
+  ENV['KLIPPA_IDENTITY_VERIFICATION_SDK_PASSWORD'] = '{your-password}'
 end
 
 // Edit the Runner config to add the pod:

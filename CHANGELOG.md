@@ -1,3 +1,9 @@
+## 0.0.22
+
+* Bump iOS to 0.7.0, which adds support for arm64 simulators on Apple Silicon Macs.
+* The minimum iOS version is now 15.0.
+* Fix the Podfile credentials example in the README.
+
 ## 0.0.21
 
 * Bump Android to 0.7.20
